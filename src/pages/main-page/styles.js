@@ -20,7 +20,6 @@ const Main = styled.main`
 
 const ProfileContainer = styled.div`
   grid-area: profile;
-  border-right: 1px solid #e0e0e0;
   display: flex;
   justify-content: center;
   div {
@@ -63,6 +62,8 @@ const ProfileContainer = styled.div`
       transition: ${styles.transition};
 
       &:hover {
+        box-shadow: none;
+        transform: translateY(2px);
         cursor: pointer;
         background: #f7f7f7;
       }
@@ -87,7 +88,112 @@ const ProfileContainer = styled.div`
 
 const ContentContainer = styled.div`
   grid-area: content-container;
-  margin: 0 20px;
+  padding: 0 20px;
+
+  .languages {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    animation: fade 1s;
+  }
+
+  .repositories {
+    animation: fade 1s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
-export { MainContainer, Main, ProfileContainer, ContentContainer };
+const Card = styled.div`
+  text-align: center;
+  margin: 5px;
+  border: 1px solid #d0d0d0;
+  padding: 10px 10px;
+  background: #fafafa;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #777;
+  width: 128px;
+  border-radius: 5px;
+  font-weight: 300;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  transition: all ease-in-out 250ms;
+
+  &:hover {
+    background: #f0f0f0;
+    box-shadow: none;
+    transform: translateY(1px);
+  }
+`;
+
+const Repository = styled.div`
+  margin: 10px 0;
+  padding: 5px 10px;
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.125);
+  display: flex;
+  flex-direction: column;
+  color: #555;
+
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 16px;
+    color: #fff;
+    background: #24292e;
+    border: none;
+    border-radius: 5px;
+    transition: all ease-in-out 250ms;
+    outline: none;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+`;
+
+const Menu = styled.div`
+  display: flex;
+  h1 {
+    font-weight: 400;
+    font-size: 24px;
+    margin: 0 20px 0 0;
+    color: #555;
+    cursor: pointer;
+
+    &.active {
+      font-weight: 600;
+    }
+  }
+`;
+
+const Title = styled.h1`
+  margin-top: 10px;
+  font-weight: 400;
+  color: #24292e;
+  text-align: center;
+`;
+
+export {
+  MainContainer,
+  Main,
+  ProfileContainer,
+  ContentContainer,
+  Menu,
+  Card,
+  Repository,
+  Title,
+};
