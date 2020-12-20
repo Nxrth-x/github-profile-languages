@@ -1,5 +1,5 @@
 import { MainHeader, IconContainer, InputContainer } from "./styles";
-import { FaGithub, FaSearch } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 function Header({ search }) {
   return (
@@ -13,7 +13,9 @@ function Header({ search }) {
           type="text"
           placeholder="Search..."
           onBlur={({ target: { value } }) => {
-            search(value);
+            if (value.length >= 5) {
+              search(value);
+            }
           }}
         />
       </InputContainer>
